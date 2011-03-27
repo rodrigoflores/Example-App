@@ -1,2 +1,2 @@
 require 'capybara/rails'
-require 'capbybara/rspec'
+require 'capybara/rspec'
