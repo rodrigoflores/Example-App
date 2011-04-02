@@ -10,11 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110327001811) do
+ActiveRecord::Schema.define(:version => 20110402234128) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "url"
     t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "temperatures", :force => true do |t|
+    t.float    "temperature_in_celsius"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
