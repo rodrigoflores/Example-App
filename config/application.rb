@@ -16,7 +16,8 @@ config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{Rails.root}/lib/temperature_converter)
+    config.autoload_paths += %W(#{Rails.root}/lib/temperature_converter
+                                #{Rails.root}/lib/model_formatter)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
