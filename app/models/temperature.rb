@@ -1,11 +1,5 @@
 class Temperature < ActiveRecord::Base
   validates_presence_of :temperature_in_celsius
+  composed_of :temperature_converter, :mapping => %w(temperature_in_celsius temperature)
 
-  def in_fahrenheit
-    (9.0/5.0)*temperature_in_celsius + 32.0
-  end
-
-  def in_kelvin
-    temperature_in_celsius + 273.15
-  end
 end
