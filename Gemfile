@@ -9,3 +9,4 @@ gem 'shoulda-matchers', :group  => [:development, :test]
 gem "capybara", :group => [:development, :test]
 gem "slim"
 gem "slim-rails"
+gem "omniauth"

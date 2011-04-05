@@ -43,3 +43,8 @@ config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     config.filter_parameters += [:password]
   end
 end
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, '191790294169835', 'e1b9cfd94b01b4d9df47663e500f9dfd'
+end
+
