@@ -3,15 +3,14 @@ class AuthorizationsController < ApplicationController
   end
 
   def callback
-    my_request = request.env['omniauth.auth']
-    if authorization = Authorization.find_by_uid(request['uid'])
+    sign_up_sign_in = Presenters::SignupSigninPresenter(request.env['omniauth.auth'])
+    if sign_up_sign_in.existent?
       flash[:notice] = "Welcome back #{authorization.full_name}"
     else
-      authorization = Authorization.new(:uid => my_request['uid'], :full_name => "#{my_request['user_info']['first_name']} #{my_request["user_info"]['last_name']}", :provider => my_request["provider"])
-      authorization.save
+      sign_up_sign_in.create_authorization
       flash[:notice] = "Welcome #{authorization.full_name}"
     end
-    session[:user_id] = authorization.id
+    session[:user_id] = sign_up_sign_in.retrieve_id
     redirect_to pages_path
   end
 
