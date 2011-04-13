@@ -10,3 +10,5 @@ gem "capybara", :group => [:development, :test]
 gem "slim"
 gem "slim-rails"
 gem "omniauth"
+
+gem "query_reviewer", :git => "git://github.com/nesquena/query_reviewer.git"
