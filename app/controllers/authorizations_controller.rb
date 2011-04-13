@@ -3,7 +3,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def callback
-    sign_up_sign_in = Presenters::SignupSigninPresenter(request.env['omniauth.auth'])
+    sign_up_sign_in = SignupSigninPresenter(request.env['omniauth.auth'])
     if sign_up_sign_in.existent?
       flash[:notice] = "Welcome back #{authorization.full_name}"
     else
