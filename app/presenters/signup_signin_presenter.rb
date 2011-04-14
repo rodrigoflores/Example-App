@@ -11,7 +11,16 @@ class SignupSigninPresenter
   end
 
   def create_or_find_authorization
-    @authorization = Authorization.create(:full_name => @full_name, :provider => @provider, :uid => @uid) unless @authorization
+    if @authorization
+      :existent
+    else
+      @authorization = Authorization.create(:full_name => @full_name, :provider => @provider, :uid => @uid)
+      :new
+    end
+  end
+
+  def full_name
+    @authorization.full_name
   end
 
   def retrieve_id
