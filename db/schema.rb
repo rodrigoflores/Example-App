@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405004033) do
+ActiveRecord::Schema.define(:version => 20110415021315) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20110405004033) do
   create_table "bookmarks", :force => true do |t|
     t.string   "url"
     t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "musics", :force => true do |t|
+    t.string   "title"
+    t.string   "genre"
+    t.string   "singer"
+    t.string   "composer"
+    t.string   "country"
+    t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
