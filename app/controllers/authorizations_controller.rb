@@ -4,7 +4,7 @@ class AuthorizationsController < ApplicationController
 
   def callback
     sign_up_sign_in = SignupSigninPresenter.new(request.env['omniauth.auth'])
-    if  sign_up_sign_in.create_or_find_authorization == :existent
+    if  sign_up_sign_in.create_or_find_authorization == :found
       flash[:notice] = "Welcome back #{sign_up_sign_in.full_name}"
     else
       flash[:notice] = "Welcome #{sign_up_sign_in.full_name}"

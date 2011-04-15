@@ -6,15 +6,12 @@ class SignupSigninPresenter
     @authorization = Authorization.find_by_uid(@uid)
   end
 
-  def existent?
-    !!@authorization
-  end
-
   def create_or_find_authorization
     if @authorization
-      :existent
+      :found
     else
       @authorization = Authorization.create(:full_name => @full_name, :provider => @provider, :uid => @uid)
+      #Send an e-mail
       :new
     end
   end
